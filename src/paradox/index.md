@@ -1,3 +1,3 @@
 # Foo
 
-bar
+bar. [API docs](latest/api)

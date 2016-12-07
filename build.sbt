@@ -5,7 +5,7 @@ val lMain      = RootProject(uri("git://github.com/Sciss/ScalaCollider.git#v1.21
 
 val root = (project in file("."))
   .settings(unidocSettings)
-  .enablePlugins(ParadoxSitePlugin, SiteScaladocPlugin)
+  .enablePlugins(ParadoxPlugin, ParadoxSitePlugin, SiteScaladocPlugin)
   .settings(ghpages.settings)
   .settings(
     name := "ParadoxTest",
@@ -16,7 +16,8 @@ val root = (project in file("."))
     git.gitCurrentBranch := "master",
     paradoxTheme := Some(builtinParadoxTheme("generic")),
     paradoxProperties in Compile ++= Map(
-      "foo" -> "bar"
+      "foo" -> "bar",
+      "extref.download.base_url" -> s"https://github.com/Sciss/ScalaColliderSwing/releases/download/v${version.value}/scalacolliderswing-${version.value}-%s.zip"
     ),
     scalacOptions in (Compile, doc) ++= Seq("-skip-packages", "de.sciss.osc.impl")
   )
